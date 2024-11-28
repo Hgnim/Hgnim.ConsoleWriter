@@ -1,5 +1,8 @@
 namespace ConsoleWriter
 {
+    /// <summary>
+    /// 控制台写入器
+    /// </summary>
     public class CWriter
     {
 		/// <summary>
