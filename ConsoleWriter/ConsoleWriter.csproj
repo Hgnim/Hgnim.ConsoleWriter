@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	 <Title>控制台输出器</Title>
+	 <Company>Hgnim</Company>
+	 <Product>ConsoleWriter</Product>
+	 <Description>控制台输出器</Description>
+	 <Copyright>Copyright (C) 2024 Hgnim, All rights reserved.</Copyright>
+	 <AssemblyName>ConsoleWriter</AssemblyName>
+	 <AssemblyVersion>1.0.3.1128</AssemblyVersion>
+	 <FileVersion>1.0.3.1128</FileVersion>
+	 <Version>1.0.3.20241128</Version>
+	  
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <PackageProjectUrl>https://github.com/Hgnim/ConsoleWriter</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/Hgnim/ConsoleWriter</RepositoryUrl>
+	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
+	  <Authors>Hgnim</Authors>
+	  <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
