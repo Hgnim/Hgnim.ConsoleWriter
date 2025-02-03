@@ -1,4 +1,4 @@
-namespace ConsoleWriter
+namespace Hgnim.ConsoleWriter
 {
     /// <summary>
     /// 控制台写入器

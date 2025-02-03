@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleWriter", "ConsoleWriter\ConsoleWriter.csproj", "{258F1857-9B51-4260-BF46-AFDD8366CDE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hgnim.ConsoleWriter", "ConsoleWriter\Hgnim.ConsoleWriter.csproj", "{258F1857-9B51-4260-BF46-AFDD8366CDE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
