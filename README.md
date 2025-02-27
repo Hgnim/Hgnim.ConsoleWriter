@@ -1,1 +1,4 @@
-如果要下载该nuget包，请前往[Release页面](https://github.com/Hgnim/ConsoleWriter/releases)下载，在没有更改包源的情况下，不要使用命令进行安装
+## Hgnim.ConsoleWriter
+
+让控制台输出和绘制更加方便\
+查看[示例](https://github.com/Hgnim/Hgnim.ConsoleWriter/blob/main/DebugConsole/Program.cs)以了解大致的使用方法

@@ -4,23 +4,30 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	 <Title>控制台输出器</Title>
-	 <Company>Hgnim</Company>
-	 <Product>ConsoleWriter</Product>
-	 <Description>控制台输出器</Description>
-	 <Copyright>Copyright (C) 2024 Hgnim, All rights reserved.</Copyright>
-	 <AssemblyName>Hgnim.ConsoleWriter</AssemblyName>
-	 <AssemblyVersion>1.0.3.1128</AssemblyVersion>
-	 <FileVersion>1.0.3.1128</FileVersion>
-	 <Version>1.0.3.20241128</Version>
-	  
+
+	  <Authors>Hgnim</Authors>
+	  <Company>$(Authors)</Company>
+	  <Owners>$(Authors)</Owners>
+	  <Copyright>Copyright (C) 2024-2025 $(Authors), All rights reserved.</Copyright>
+	  <Product>ConsoleWriter</Product>
+	  <Title>控制台输出器</Title>
+	  <AssemblyTitle>$(Title)</AssemblyTitle>
+	  <Description>控制台输出器</Description>
+	  <AssemblyName>Hgnim.ConsoleWriter</AssemblyName>
+
+	  <AssemblyVersion>1.1.3</AssemblyVersion>
+	  <FileVersion>1.1.3.0227</FileVersion>
+	  <VersionPrefix>1.1.3.20250227</VersionPrefix>
+	  <VersionSuffix></VersionSuffix>
+
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <PackageProjectUrl>https://github.com/Hgnim/Hgnim.ConsoleWriter</PackageProjectUrl>
 	  <RepositoryUrl>https://github.com/Hgnim/Hgnim.ConsoleWriter</RepositoryUrl>
 	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
-	  <Authors>Hgnim</Authors>
 	  <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,6 +35,10 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+	<None Include="..\README.md">
+	  <Pack>True</Pack>
+	  <PackagePath>\</PackagePath>
+	</None>
   </ItemGroup>
 
 </Project>
