@@ -5,10 +5,6 @@ namespace Hgnim.ConsoleWriter
     /// </summary>
     public class CWriter
     {
-		/// <summary>
-		/// 用于检测是否初始化
-		/// </summary>
-		private bool defBool = false;
         private int consTop;
         private int consLeft;
 		
@@ -18,7 +14,7 @@ namespace Hgnim.ConsoleWriter
 		/// </summary>
 		public ConsoleColor DefBack
         {
-            get => DefBack;
+            get => defBack;
         }
 		
 		private ConsoleColor defFore;
@@ -30,39 +26,59 @@ namespace Hgnim.ConsoleWriter
             get => defFore;
         }
 
+        private static void ConWrite(string str,bool wl) {
+			if (wl) {
+				Console.WriteLine(str);
+			}
+			else {
+				Console.Write(str);
+			}
+		}
+        private void ColorWrite(string str,ConsoleColor? fore,ConsoleColor? back,bool wl) {
+			fore ??= defFore;
+			back ??= defBack;
+			Console.ForegroundColor = (ConsoleColor)fore;
+			Console.BackgroundColor = (ConsoleColor)back;
+			ConWrite(str, wl);
+			Console.BackgroundColor = defBack;
+			Console.ForegroundColor = defFore;
+		}
 
-        /// <summary>
-        /// 在指定坐标中输出带有指定颜色和背景色的指定字符串
-        /// </summary>
-        /// <param name="str">输出的字符串</param>
-        /// <param name="x">x坐标</param>
-        /// <param name="y">y坐标</param>
-        /// <param name="back">输出字符的背景颜色</param>
-        /// <param name="fore">输出字符的字体颜色</param>
-        /// <param name="writeLine">是否换行</param>
-        public void ConsoleLocWrite(string str, int x, int y, ConsoleColor back, ConsoleColor fore, bool writeLine = false)
+		/// <summary>
+		/// 输出带有颜色的字符串
+		/// </summary>
+		/// <param name="str">输出的字符串</param>
+		/// <param name="foreColor">输出字符的字体颜色，如果为null则使用默认值</param>
+		/// <param name="backColor">输出字符的背景颜色，如果为null则使用默认值</param>
+		public void Write(string str, ConsoleColor? foreColor = null, ConsoleColor? backColor = null) {
+			ColorWrite(str, foreColor, backColor, false);
+		}
+		/// <summary>
+		/// 输出一行带有颜色的字符串
+		/// </summary>
+		/// <param name="str">输出的字符串</param>
+		/// <param name="foreColor">输出字符的字体颜色，如果为null则使用默认值</param>
+		/// <param name="backColor">输出字符的背景颜色，如果为null则使用默认值</param>
+		public void WriteLine(string str, ConsoleColor? foreColor = null, ConsoleColor? backColor = null) {
+            ColorWrite(str, foreColor, backColor, true);
+        }
+
+
+		/// <summary>
+		/// 在指定坐标中输出带有指定颜色和背景色的指定字符串
+		/// </summary>
+		/// <param name="str">输出的字符串</param>
+		/// <param name="x">x坐标</param>
+		/// <param name="y">y坐标</param>
+		/// <param name="foreColor">输出字符的字体颜色，如果为null则使用默认值</param>
+		/// <param name="backColor">输出字符的背景颜色，如果为null则使用默认值</param>
+		public void LocWrite(string str, int x, int y, ConsoleColor? foreColor =null, ConsoleColor? backColor=null)
         {
-            if (defBool)
-            {
                 if (x != -1 && y != -1)
                 {
                     SetCursor(x, y);
                 }
-                Console.BackgroundColor = back;
-                Console.ForegroundColor = fore;
-                if (writeLine)
-                {
-                    Console.WriteLine(str);
-                }
-                else
-                {
-                    Console.Write(str);
-                }
-                Console.BackgroundColor = defBack;
-                Console.ForegroundColor = defFore;
-            }
-            else
-                throw new Exception("未初始化！使用前需要调用初始化方法。");
+            ColorWrite(str, foreColor, backColor, false);
         }
         /// <summary>
         /// 在指定坐标中输出指定字符串
@@ -70,46 +86,60 @@ namespace Hgnim.ConsoleWriter
         /// <param name="str">输出的字符串</param>
         /// <param name="x">x坐标</param>
         /// <param name="y">y坐标</param>
-        /// <param name="writeLine">是否换行</param>
-        public void ConsoleLocWrite(string str, int x, int y, bool writeLine = false)
+        public void LocWrite(string str, int x, int y)
         {
-            if (defBool)
-            {
                 if (x != -1 && y != -1)
                 {
                     SetCursor(x, y);
                 }
-                if (writeLine)
-                {
-                    Console.WriteLine(str);
-                }
-                else
-                {
-                    Console.Write(str);
-                }
-            }
-            else
-                throw new Exception("未初始化！使用前需要调用初始化方法。");
+            ConWrite(str, false);
         }
-        /// <summary>
-        /// 设置光标位置
-        /// </summary>
-        /// <param name="x">x坐标</param>
-        /// <param name="y">y坐标</param>
-        public void SetCursor(int x, int y)
+		/// <summary>
+		/// 在指定坐标中输出带有指定颜色和背景色的指定字符串
+		/// </summary>
+		/// <param name="str">输出的字符串</param>
+		/// <param name="x">x坐标</param>
+		/// <param name="y">y坐标</param>
+		/// <param name="foreColor">输出字符的字体颜色，如果为null则使用默认值</param>
+		/// <param name="backColor">输出字符的背景颜色，如果为null则使用默认值</param>
+		public void LocWriteLine(string str, int x, int y, ConsoleColor? foreColor = null, ConsoleColor? backColor = null) {
+			if (x != -1 && y != -1) {
+				SetCursor(x, y);
+			}
+			ColorWrite(str, foreColor, backColor, true);
+		}
+		/// <summary>
+		/// 在指定坐标中输出指定字符串
+		/// </summary>
+		/// <param name="str">输出的字符串</param>
+		/// <param name="x">x坐标</param>
+		/// <param name="y">y坐标</param>
+		public void LocWriteLine(string str, int x, int y) {
+			if (x != -1 && y != -1) {
+				SetCursor(x, y);
+			}
+			ConWrite(str, true);
+		}
+
+
+		/// <summary>
+		/// 设置光标位置
+		/// </summary>
+		/// <param name="x">x坐标</param>
+		/// <param name="y">y坐标</param>
+		public void SetCursor(int x, int y)
         {
-            Console.SetCursorPosition(consLeft + x - 1, consTop + y - 1);//因为 为了更好计算坐标值，所以进行减一
+            Console.SetCursorPosition(consLeft + x, consTop + y);
         }
         /// <summary>
         /// 初始化数据，在调用其他方法时需要初始化
         /// </summary>
-        public void Def()
+        public CWriter()
         {
             consTop = Console.CursorTop;
             consLeft = Console.CursorLeft;
             defBack = Console.BackgroundColor;
             defFore = Console.ForegroundColor;
-            defBool = true;
         }
         /// <summary>
         /// 清除终端方法
